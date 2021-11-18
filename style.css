@@ -1,0 +1,249 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+}
+/* frontend guys style */
+.attribution {
+  position: absolute;
+  font-size: 11px;
+  text-align: center;
+  width: 100%;
+  left: 50%;
+  bottom: -2rem;
+  transform: translateX(-50%);
+  color: var(--light);
+}
+.attribution a {
+  color: hsl(55deg 100% 54%);
+}
+
+/* My style */
+:root {
+  /* primary color */
+  --pr-txt-Very-dark-desaturated-blue: hsl(238, 29%, 16%);
+  --pr-txt-Soft-red: hsl(14, 88%, 65%);
+  /* background gradient */
+  --bg-Soft-violet: hsl(273, 75%, 66%);
+  --bg-Soft-blue: hsl(240, 73%, 65%);
+  /* neutral */
+  --ner-txt-Very-dark-grayish-blue: hsl(237, 12%, 33%);
+  --ner-txt-Dark-grayish-blue: hsl(240, 6%, 50%);
+  /* divider */
+  --Light-grayish-blue: hsl(240, 5%, 91%);
+
+  --light: hsl(0, 0%, 100%);
+  --dark: hsl(0, 0%, 0%);
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(var(--bg-Soft-violet), var(--bg-Soft-blue))
+    no-repeat;
+
+  font-size: 12px;
+  font-family: "Kumbh Sans", sans-serif;
+  padding: 1rem;
+}
+
+main {
+  position: relative;
+  max-width: 20.313rem;
+  margin: auto;
+  margin-top: 9.375rem;
+
+  padding: 1.5rem;
+
+  background-color: var(--light);
+  border-radius: 1rem;
+
+  box-shadow: 0 2px 15px 6px rgba(0, 0, 0, 0.2),
+    0 4px 20px 6px rgba(101, 101, 231, 0.5);
+}
+
+.vector .desktop-box {
+  display: none;
+}
+.vector {
+  opacity: 0;
+  margin-top: -9rem;
+
+  animation: SlideDown 0.5s ease-in forwards;
+}
+
+.vector img {
+  display: block;
+  width: 90%;
+  margin: auto;
+}
+
+.vector .svg-shadow {
+  margin-top: -6rem;
+}
+
+@keyframes SlideDown {
+  to {
+    opacity: 1;
+    margin-top: -8.5rem;
+  }
+}
+.faq h1 {
+  font-size: clamp(1.8rem, 9.6vw, 2.25rem);
+  margin: 1.875rem 0;
+  text-align: center;
+}
+
+.qa-block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+  border-bottom: 1px solid var(--Light-grayish-blue);
+}
+
+.qa-block p:nth-of-type(1) {
+  font-size: 0.875rem;
+
+  display: flex;
+  justify-content: space-between;
+
+  padding-bottom: 1rem;
+
+  cursor: pointer;
+}
+.qa-block p:nth-of-type(1) span {
+  transform: rotate(360deg);
+  transition: transform 0.5s ease;
+}
+.qa-block p:nth-of-type(2) {
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  line-height: 1rem;
+  width: 16.3rem;
+
+  color: var(--ner-txt-Dark-grayish-blue);
+}
+
+.qa-block.close p:nth-of-type(2) {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+
+  transition: all 0.5s ease;
+}
+
+.qa-block.open p:nth-of-type(1) {
+  font-weight: 700;
+  color: var(--pr-txt-Soft-red);
+  transition: all 0.5s ease;
+}
+.qa-block.open p:nth-of-type(1) span {
+  transform: rotate(-180deg);
+  transition: transform 0.5s ease;
+}
+
+.qa-block.open p:nth-of-type(2) {
+  padding-bottom: 1rem;
+  max-height: 5rem;
+  opacity: 1;
+  transition: all 0.25s cubic-bezier(1, 0.49, 0.57, 1.13);
+}
+
+@media (min-width: 900px) {
+  .attribution {
+    position: absolute;
+    font-size: 0.8rem;
+    text-align: center;
+    width: 100%;
+    left: 50%;
+    bottom: -2rem;
+    transform: translateX(-50%);
+    color: var(--light);
+  }
+
+  main {
+    position: relative;
+    max-width: 57.5rem;
+    margin-top: 4.75rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: min-content;
+    column-gap: 4.375rem;
+    padding: 4.375rem 5.375rem;
+
+    height: 31.875rem;
+  }
+
+  main::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-image: url(images/illustration-woman-online-desktop.svg),
+      url(images/bg-pattern-desktop.svg);
+
+    background-position: -80px 60px, -530px -280px;
+    background-repeat: no-repeat;
+    background-size: 50%, 100%;
+    pointer-events: none;
+    animation: BgSlideIn 0.5s ease-in forwards;
+  }
+  @keyframes BgSlideIn {
+    to {
+      opacity: 1;
+      background-position: -70px 60px, -520px -280px;
+    }
+  }
+  .vector {
+    position: relative;
+    display: flex;
+    opacity: 0;
+    margin-top: 145px;
+    margin-left: -200px;
+    width: 50%;
+    z-index: 1;
+    animation: SlideIn 0.5s ease-in forwards;
+  }
+
+  .vector .desktop-box {
+    position: absolute;
+    display: block;
+  }
+  @keyframes SlideIn {
+    to {
+      opacity: 1;
+
+      margin-left: -155px;
+    }
+  }
+  .vector .svg-shadow,
+  .vector .svg-women-online {
+    display: none;
+  }
+
+  .faq h1 {
+    font-size: clamp(1.8rem, 2.5vw, 2.25rem);
+    margin: 0;
+    margin-bottom: 1.875rem;
+    text-align: left;
+  }
+
+  .qa-block ~ .qa-block {
+    padding-top: 1.5rem;
+  }
+  .qa-block p:nth-of-type(1):hover {
+    color: var(--pr-txt-Soft-red);
+  }
+  .qa-block p:nth-of-type(2) {
+    width: auto;
+  }
+}
